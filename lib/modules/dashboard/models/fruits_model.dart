@@ -36,16 +36,19 @@ class FruitsModel {
 class FruitsData {
   FruitsData({
     this.imagesReferences,
+    this.rawImagesReferences,
     this.fruits,
   });
 
   ImagesReferences? imagesReferences;
+  Map<String, dynamic>? rawImagesReferences;
   List<Fruit>? fruits;
 
   factory FruitsData.fromJson(Map<String, dynamic> json) => FruitsData(
         imagesReferences: json["imagesReferences"] == null
             ? null
             : ImagesReferences.fromJson(json["imagesReferences"]),
+        rawImagesReferences: json["imagesReferences"],
         fruits: json["fruits"] == null
             ? null
             : List<Fruit>.from(json["fruits"].map((x) => Fruit.fromJson(x))),
@@ -54,6 +57,7 @@ class FruitsData {
   Map<String, dynamic> toJson() => {
         "imagesReferences":
             imagesReferences == null ? null : imagesReferences!.toJson(),
+        "rawImagesReferences": rawImagesReferences,
         "fruits": fruits == null
             ? null
             : List<dynamic>.from(fruits!.map((x) => x.toJson())),

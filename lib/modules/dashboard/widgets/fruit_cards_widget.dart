@@ -27,26 +27,7 @@ class _FruitCardsWidgetState extends State<FruitCardsWidget> {
   }
 
   String _getImage(String fruitName) {
-    var imageRef = widget.data?.imagesReferences;
-
-    switch (fruitName) {
-      case "apple":
-        return imageRef?.apple ?? "";
-
-      case "manggo":
-        return imageRef?.manggo ?? "";
-
-      case "banana":
-        return imageRef?.banana ?? "";
-
-      case "avocado":
-        return imageRef?.avocado ?? "";
-
-      case "melon":
-        return imageRef?.melon ?? "";
-    }
-
-    return "";
+    return widget.data?.rawImagesReferences?[fruitName] ?? "";
   }
 
   String _getFrequentFruits() {
